@@ -20,4 +20,17 @@ public class ServiceContact {
     public List<Contact> recupererContactParNom(String nom){
         return (List<Contact>) r.findByNomLike(nom);
     }
+    public List<Contact> recupererContactParVille(String ville){
+        return (List<Contact>) r.findByAdresseLike(ville);
+    }
+    public void supprimerContact(long id){
+        r.deleteById(id);
+    }
+    public boolean ContactExist(long id){
+        return r.existsById(id);
+    }
+
+    public void supprimerPaVille(String ville){
+        r.supprimerParVille("%"+ville+"%");
+    }
 }
